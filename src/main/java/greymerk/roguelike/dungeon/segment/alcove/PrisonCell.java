@@ -48,7 +48,7 @@ public class PrisonCell implements IAlcove {
     cursor.translate(Cardinal.DOWN);
     if (rand.nextBoolean()) {
       SpawnerSettings spawners = settings.getSpawners().isEmpty()
-          ? MobType.ZOMBIE.newSpawnerSetting()
+          ? MobType.SUPERMUTANT.newSpawnerSetting()
           : settings.getSpawners();
       spawners.generateSpawner(editor, rand, cursor, settings.getDifficulty(cursor));
     }

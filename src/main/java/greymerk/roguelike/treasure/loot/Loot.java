@@ -2,6 +2,7 @@ package greymerk.roguelike.treasure.loot;
 
 import com.google.gson.JsonObject;
 
+import greymerk.roguelike.treasure.loot.provider.*;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -11,23 +12,6 @@ import net.minecraft.nbt.NBTTagString;
 
 import java.util.Random;
 
-import greymerk.roguelike.treasure.loot.provider.ItemArmour;
-import greymerk.roguelike.treasure.loot.provider.ItemBlock;
-import greymerk.roguelike.treasure.loot.provider.ItemBrewing;
-import greymerk.roguelike.treasure.loot.provider.ItemEnchBonus;
-import greymerk.roguelike.treasure.loot.provider.ItemEnchBook;
-import greymerk.roguelike.treasure.loot.provider.ItemFood;
-import greymerk.roguelike.treasure.loot.provider.ItemJunk;
-import greymerk.roguelike.treasure.loot.provider.ItemMixture;
-import greymerk.roguelike.treasure.loot.provider.ItemNovelty;
-import greymerk.roguelike.treasure.loot.provider.ItemOre;
-import greymerk.roguelike.treasure.loot.provider.ItemPotion;
-import greymerk.roguelike.treasure.loot.provider.ItemRecord;
-import greymerk.roguelike.treasure.loot.provider.ItemSmithy;
-import greymerk.roguelike.treasure.loot.provider.ItemSpecialty;
-import greymerk.roguelike.treasure.loot.provider.ItemSupply;
-import greymerk.roguelike.treasure.loot.provider.ItemTool;
-import greymerk.roguelike.treasure.loot.provider.ItemWeapon;
 import greymerk.roguelike.util.IWeighted;
 import greymerk.roguelike.util.TextFormat;
 
@@ -48,7 +32,10 @@ public enum Loot {
   SMITHY,
   SPECIAL,
   REWARD,
-  BREWING;
+  BREWING,
+  TECHGUNS,
+  TECHGUNS_AMMO,
+  TECHGUNS_ARMOR,;
 
   public static ILoot getLoot() {
 
@@ -94,6 +81,12 @@ public enum Loot {
     switch (type) {
       case WEAPON:
         return new ItemWeapon(0, level);
+      case TECHGUNS:
+        return new ItemTechguns(0, level);
+      case TECHGUNS_AMMO:
+        return new ItemTechgunsAmmo(0, level);
+      case TECHGUNS_ARMOR:
+        return new ItemTechgunsArmor(0, level);
       case ARMOUR:
         return new ItemArmour(0, level);
       case BLOCK:

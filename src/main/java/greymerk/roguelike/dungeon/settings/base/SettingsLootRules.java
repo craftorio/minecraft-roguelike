@@ -39,6 +39,9 @@ public class SettingsLootRules extends DungeonSettings {
       getLootRules().add(Treasure.ARMOUR, loot.get(Loot.FOOD, i), i, true, 1);
       getLootRules().add(Treasure.WEAPONS, loot.get(Loot.POTION, i), i, true, 1);
       getLootRules().add(Treasure.WEAPONS, loot.get(Loot.WEAPON, i), i, true, 1);
+      getLootRules().add(Treasure.WEAPONS, loot.get(Loot.TECHGUNS, i), i, true, 1);
+      getLootRules().add(Treasure.WEAPONS, loot.get(Loot.TECHGUNS_AMMO, i), i, true, 1);
+      getLootRules().add(Treasure.WEAPONS, loot.get(Loot.TECHGUNS_ARMOR, i), i, true, 1);
       getLootRules().add(Treasure.WEAPONS, loot.get(Loot.FOOD, i), i, true, 1);
       getLootRules().add(Treasure.WEAPONS, loot.get(Loot.FOOD, i), i, true, 1);
       getLootRules().add(Treasure.BLOCKS, loot.get(Loot.BLOCK, i), i, true, 6);
@@ -80,6 +83,7 @@ public class SettingsLootRules extends DungeonSettings {
     getLootRules().add(Treasure.STARTER, loot.get(Loot.FOOD, 0), 0, true, 2);
     getLootRules().add(Treasure.STARTER, loot.get(Loot.TOOL, 0), 0, true, 2);
     getLootRules().add(Treasure.STARTER, loot.get(Loot.SUPPLY, 0), 0, true, 2);
+    getLootRules().add(Treasure.STARTER, loot.get(Loot.TECHGUNS_AMMO, 0), 0, true, 2);
     getLootRules().add(Treasure.STARTER, new ItemSpecialty(0, 0, Equipment.LEGS, Quality.WOOD), 0, true, 2);
   }
 }

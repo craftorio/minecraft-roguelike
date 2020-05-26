@@ -1,34 +1,21 @@
 package greymerk.roguelike.monster;
 
+import greymerk.roguelike.monster.profiles.*;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-import greymerk.roguelike.monster.profiles.ProfileArcher;
-import greymerk.roguelike.monster.profiles.ProfileAshlea;
-import greymerk.roguelike.monster.profiles.ProfileBaby;
-import greymerk.roguelike.monster.profiles.ProfileEvoker;
-import greymerk.roguelike.monster.profiles.ProfileHusk;
-import greymerk.roguelike.monster.profiles.ProfileJohnny;
-import greymerk.roguelike.monster.profiles.ProfileMagicArcher;
-import greymerk.roguelike.monster.profiles.ProfilePigman;
-import greymerk.roguelike.monster.profiles.ProfilePoisonArcher;
-import greymerk.roguelike.monster.profiles.ProfileRleahy;
-import greymerk.roguelike.monster.profiles.ProfileSkeleton;
-import greymerk.roguelike.monster.profiles.ProfileSwordsman;
-import greymerk.roguelike.monster.profiles.ProfileTallMob;
-import greymerk.roguelike.monster.profiles.ProfileVillager;
-import greymerk.roguelike.monster.profiles.ProfileVindicator;
-import greymerk.roguelike.monster.profiles.ProfileWitch;
-import greymerk.roguelike.monster.profiles.ProfileWither;
-import greymerk.roguelike.monster.profiles.ProfileZombie;
-
 public enum MonsterProfile {
 
   TALLMOB,
   ZOMBIE,
+  ZOMBIESOLDIER,
+  SUPERMUTANT,
+  ALIENBUG,
+  SKELETONSOLDIER,
+  CYBERDEMON,
   PIGMAN,
   SKELETON,
   VILLAGER,
@@ -52,6 +39,16 @@ public enum MonsterProfile {
         return new ProfileTallMob();
       case ZOMBIE:
         return new ProfileZombie();
+      case ZOMBIESOLDIER:
+        return new ProfileZombieSoldier();
+      case SUPERMUTANT:
+        return new ProfileSupermutant();
+      case ALIENBUG:
+        return new ProfileAlienbug();
+      case SKELETONSOLDIER:
+        return new ProfileSkeletonsoldier();
+      case CYBERDEMON:
+        return new ProfileCyberdemon();
       case PIGMAN:
         return new ProfilePigman();
       case SKELETON:
@@ -98,7 +95,7 @@ public enum MonsterProfile {
     }
 
     if (mob.instance(EntitySkeleton.class)) {
-      profile = get(SKELETON);
+      profile = get(SKELETONSOLDIER);
     }
 
     if (profile == null) {

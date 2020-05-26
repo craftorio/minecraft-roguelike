@@ -3,6 +3,7 @@ package greymerk.roguelike.worldgen.spawners;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import greymerk.roguelike.config.RogueConfig;
@@ -22,7 +23,7 @@ import static greymerk.roguelike.treasure.loot.Quality.getToolQuality;
 import static greymerk.roguelike.treasure.loot.Quality.getWeaponQuality;
 import static java.util.stream.IntStream.range;
 
-public class SpawnPotential {
+public class  SpawnPotential {
 
   private String name;
   private int weight;

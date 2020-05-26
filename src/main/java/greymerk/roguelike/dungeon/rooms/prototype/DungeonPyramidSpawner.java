@@ -21,7 +21,7 @@ import greymerk.roguelike.worldgen.spawners.SpawnerSettings;
 
 import static greymerk.roguelike.treasure.Treasure.COMMON_TREASURES;
 import static greymerk.roguelike.treasure.Treasure.createChests;
-import static greymerk.roguelike.worldgen.spawners.MobType.COMMON_MOBS;
+import static greymerk.roguelike.worldgen.spawners.MobType.COMMON_TECH_MOBS;
 
 public class DungeonPyramidSpawner extends DungeonBase {
 
@@ -122,7 +122,7 @@ public class DungeonPyramidSpawner extends DungeonBase {
     createChests(editor, rand, Dungeon.getLevel(origin.getY()), chestLocations, false, COMMON_TREASURES);
     final Coord cursor1 = new Coord(x, y, z);
     SpawnerSettings spawners = settings.getSpawners();
-    generateSpawner(editor, rand, cursor1, settings.getDifficulty(cursor1), spawners, COMMON_MOBS);
+    generateSpawner(editor, rand, cursor1, settings.getDifficulty(cursor1), spawners, COMMON_TECH_MOBS);
     return this;
   }
 

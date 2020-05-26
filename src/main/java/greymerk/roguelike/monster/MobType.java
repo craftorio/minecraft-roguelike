@@ -15,10 +15,13 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.world.World;
 
+import techguns.entities.npcs.ZombieSoldier;
+
 public enum MobType {
 
   ZOMBIE,
   ZOMBIEVILLAGER,
+  ZOMBIESOLDIER,
   HUSK,
   SKELETON,
   STRAY,
@@ -37,6 +40,8 @@ public enum MobType {
         return new EntityZombie(world);
       case ZOMBIEVILLAGER:
         return new EntityZombieVillager(world);
+      case ZOMBIESOLDIER:
+        return new ZombieSoldier(world);
       case HUSK:
         return new EntityHusk(world);
       case SKELETON:

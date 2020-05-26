@@ -21,7 +21,7 @@ import greymerk.roguelike.worldgen.shapes.RectSolid;
 
 import static greymerk.roguelike.treasure.Treasure.COMMON_TREASURES;
 import static greymerk.roguelike.treasure.Treasure.createChests;
-import static greymerk.roguelike.worldgen.spawners.MobType.COMMON_MOBS;
+import static greymerk.roguelike.worldgen.spawners.MobType.COMMON_TECH_MOBS;
 
 
 public class DungeonEniko extends DungeonBase {
@@ -119,7 +119,7 @@ public class DungeonEniko extends DungeonBase {
       }
     }
 
-    generateSpawner(editor, rand, origin, settings.getDifficulty(origin), settings.getSpawners(), COMMON_MOBS);
+    generateSpawner(editor, rand, origin, settings.getDifficulty(origin), settings.getSpawners(), COMMON_TECH_MOBS);
     List<Coord> chestLocations = chooseRandomLocations(rand, 1, chests);
     createChests(editor, rand, settings.getDifficulty(origin), chestLocations, false, COMMON_TREASURES);
 

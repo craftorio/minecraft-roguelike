@@ -58,7 +58,7 @@ public abstract class DungeonBase implements Comparable<DungeonBase> {
     }
     return !levelSettingsSpawners.isEmpty()
         ? levelSettingsSpawners
-        : MobType.newSpawnerSetting(defaultMobs.length > 0 ? defaultMobs : MobType.COMMON_MOBS);
+        : MobType.newSpawnerSetting(defaultMobs.length > 0 ? defaultMobs : difficulty >= 4 ? MobType.UNCOMMON_TECH_MOBS : MobType.COMMON_TECH_MOBS);
   }
 
   public abstract int getSize();

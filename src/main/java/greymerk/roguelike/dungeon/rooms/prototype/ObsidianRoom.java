@@ -19,8 +19,7 @@ import greymerk.roguelike.worldgen.blocks.BlockType;
 import greymerk.roguelike.worldgen.shapes.RectSolid;
 import greymerk.roguelike.worldgen.spawners.SpawnerSettings;
 
-import static greymerk.roguelike.treasure.Treasure.RARE_TREASURES;
-import static greymerk.roguelike.treasure.Treasure.createChest;
+import static greymerk.roguelike.treasure.Treasure.*;
 
 public class ObsidianRoom extends DungeonBase {
 
@@ -313,7 +312,7 @@ public class ObsidianRoom extends DungeonBase {
         chestPos.translate(orth, 2);
         chestPos.translate(Cardinal.DOWN, 3);
 
-        createChest(editor, rand, Dungeon.getLevel(chestPos.getY()), chestPos, false, RARE_TREASURES);
+        createChest(editor, rand, Dungeon.getLevel(chestPos.getY()), chestPos, false, EPIC_TREASURES);
       }
     }
 

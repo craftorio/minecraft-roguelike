@@ -19,8 +19,7 @@ import greymerk.roguelike.worldgen.blocks.Crops;
 import greymerk.roguelike.worldgen.shapes.RectHollow;
 import greymerk.roguelike.worldgen.shapes.RectSolid;
 
-import static greymerk.roguelike.treasure.Treasure.RARE_TREASURES;
-import static greymerk.roguelike.treasure.Treasure.createChests;
+import static greymerk.roguelike.treasure.Treasure.*;
 import static greymerk.roguelike.worldgen.Cardinal.DOWN;
 import static greymerk.roguelike.worldgen.Cardinal.UP;
 import static greymerk.roguelike.worldgen.Cardinal.directions;
@@ -89,7 +88,7 @@ public class FortressRoom extends DungeonBase {
     List<Coord> chests = (new RectSolid(start, end).get());
 
     List<Coord> chestLocations = chooseRandomLocations(rand, rand.nextInt(3) + 1, chests);
-    createChests(editor, rand, levelSettings.getDifficulty(origin), chestLocations, false, RARE_TREASURES);
+    createChests(editor, rand, levelSettings.getDifficulty(origin), chestLocations, false, EPIC_TREASURES);
 
     for (Cardinal dir : directions) {
 

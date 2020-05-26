@@ -24,27 +24,53 @@ public enum MobType {
   WITCH("witch"),
   WITHERBOSS("wither"),
   WITHERSKELETON("wither_skeleton"),
-  ZOMBIE("zombie");
+  ZOMBIE("zombie"),
+  ZOMBIESOLDIER("techguns:zombiesoldier"),
+  ZOMBIEMINER("techguns:zombieminer"),
+  ZOMBIEPOLICEMAN("techguns:zombiepoliceman"),
+  ZOMBIEPIGMANSOLDIER("techguns:zombiepigmansoldier"),
+  ZOMBIEFARMER("techguns:zombiefarmer"),
+  ALIENBUG("techguns:alienbug"),
+  SUPERMUTANT("techguns:supermutantbasic"),
+  CYBERDEMON("techguns:cyberdemon"),
+  SKELETONSOLDIER("techguns:skeletonsoldier");
 
-  public static final MobType[] COMMON_MOBS = {SKELETON, SPIDER, ZOMBIE};
-  public static final MobType[] UNCOMMON_MOBS = {CAVESPIDER, CREEPER};
+
+  public static final MobType[] COMMON_MOBS = {ZOMBIEFARMER, SPIDER, ALIENBUG, ZOMBIEMINER};
+  public static final MobType[] COMMON_TECH_MOBS = {ZOMBIESOLDIER, ALIENBUG, ZOMBIE, SKELETONSOLDIER};
+  public static final MobType[] UNCOMMON_MOBS = {CAVESPIDER, CREEPER, SUPERMUTANT};
+  public static final MobType[] UNCOMMON_TECH_MOBS = {ZOMBIEMINER, ZOMBIESOLDIER, SKELETONSOLDIER, ZOMBIEPIGMANSOLDIER};
   public static final MobType[] RARE_MOBS = {ENDERMAN, SLIME, WITCH};
   public static final MobType[] EPIC_MOBS = {WITHERBOSS};
   public static final MobType[] LEGENDARY_MOBS = {};
 
 
   public static final MobType[] HUMANOID_MOBS = {SKELETON, WITCH, ZOMBIE};
-  public static final MobType[] UNDEAD_MOBS = {SKELETON, ZOMBIE};
-  public static final MobType[] NETHER_MOBS = {BLAZE, LAVASLIME, PIGZOMBIE, WITHERSKELETON};
+  public static final MobType[] UNDEAD_MOBS = {ZOMBIEPOLICEMAN, SKELETONSOLDIER, ZOMBIEFARMER, ZOMBIEMINER};
+  public static final MobType[] NETHER_MOBS = {BLAZE, LAVASLIME, ZOMBIEPIGMANSOLDIER, CYBERDEMON};
+
+  public static final MobType[] TECH_MOBS = {ZOMBIESOLDIER, ZOMBIEMINER, ZOMBIEPOLICEMAN,
+          ZOMBIEPIGMANSOLDIER, ZOMBIEFARMER, ALIENBUG,
+          SUPERMUTANT, CYBERDEMON, SKELETONSOLDIER};
 
   private String name;
+  private Boolean equip = true;
 
   MobType(String name) {
-    this.name = "minecraft:" + name;
+    if (0 == name.indexOf("techguns:")) {
+      this.name = name;
+      this.equip = false;
+    } else {
+      this.name = "minecraft:" + name;
+    }
   }
 
   public String getName() {
     return name;
+  }
+
+  public Boolean useEquip() {
+    return equip;
   }
 
   public SpawnerSettings newSpawnerSetting() {
@@ -55,7 +81,7 @@ public enum MobType {
     SpawnerSettings spawnerSettings = new SpawnerSettings();
 
     Arrays.stream(mobTypes)
-        .map(spawner -> new SpawnPotential(spawner.getName(), true, 1, new NBTTagCompound()))
+        .map(spawner -> new SpawnPotential(spawner.getName(), spawner.useEquip(), 1, new NBTTagCompound()))
         .map(spawnPotential -> new Spawnable(Lists.newArrayList(spawnPotential)))
         .forEach(spawnable -> spawnerSettings.add(spawnable, 1));
 

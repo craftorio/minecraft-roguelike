@@ -14,7 +14,10 @@ import greymerk.roguelike.worldgen.IWorldEditor;
 public enum Treasure {
 
   ARMOUR,
+  RARE_ARMOUR,
   WEAPONS,
+  RARE_WEAPONS,
+  AMMO,
   BLOCKS,
   ENCHANTING,
   FOOD,
@@ -31,10 +34,11 @@ public enum Treasure {
   VANILLA
   ;
 
-  public static final Treasure[] COMMON_TREASURES = {ARMOUR, BLOCKS, EMPTY, FOOD, SUPPLIES, TOOLS, VANILLA, WEAPONS};
-  public static final Treasure[] RARE_TREASURES = {ARMOUR, ENCHANTING, POTIONS, ORE, REWARD, TOOLS, VANILLA, WEAPONS};
+  public static final Treasure[] COMMON_TREASURES = {RARE_WEAPONS, EMPTY, FOOD, SUPPLIES, TOOLS, VANILLA, WEAPONS};
+  public static final Treasure[] RARE_TREASURES = {RARE_ARMOUR, RARE_WEAPONS, ENCHANTING, POTIONS, ORE, REWARD, TOOLS};
+  public static final Treasure[] EPIC_TREASURES = {RARE_ARMOUR, RARE_WEAPONS, ENCHANTING, POTIONS, ORE, REWARD, TOOLS};
 
-  public static final Treasure[] SUPPLIES_TREASURES = {BLOCKS, SUPPLIES};
+  public static final Treasure[] SUPPLIES_TREASURES = {AMMO, SUPPLIES};
 
   public static void createChests(IWorldEditor editor, Random random, int level, List<Coord> chestLocations, boolean isTrapped, Treasure... types) {
     chestLocations.forEach(chestLocation ->
